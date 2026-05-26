@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EFECTO PARALLAX</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        body {
+            background-color: black;
+        }
+        .contenedor {
+            width: 400px;
+            height: 700px;
+            border: 1px solid white;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+        .polvo{
+            width: 100%;
+            position: absolute;
+            z-index: 4;            
+            top: 550px;
+            animation: polvo 10s 1 forwards;
+        }
+        @keyframes polvo {
+            from{
+                left: 0px;                
+            }
+            top {
+                left: -200px;
+            }
+        }
+        .chica {
+            width: 800px;
+            position: absolute;
+            left: -200px;
+            top: 240px;
+            z-index: 3;
+            animation: chica 10s 1 forwards;
+        }
+        @keyframes chica {
+            from{
+                top: 310px;
+                scale: 80%;
+                filter: grayscale(100%);
+            }
+            top{
+                top: 200px;
+                scale: 150%;
+                filter: grayscale(0%);
+            }
+        }
+        .desierto {
+            width: 1000px;
+            position: absolute;
+            bottom: 0px;
+            left: -150px;
+            z-index: 2;
+            animation: desierto 10s 1 forwards;
+        }
+        @keyframes desierto {
+            from {
+                bottom: -200px;
+                filter: blur(1px);
+            }
+            top {
+                top: -150px;
+                filter: blur(0px);
+            }
+        }
+        .cielo {
+            width: 700px;
+            position: absolute;
+            left: -150px;
+            z-index: 1;
+            animation: cielo 30s infinite forwards;
+        }
+        @keyframes cielo {
+            from {
+                scale: 150%;
+                filter: blur(5px);
+            }
+            to {
+                scale: 160%;
+                filter: blur(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <img class="polvo" src="img/polvo.png" alt="">
+        <img class="chica" src="img/chica.png" alt="">
+        <img class="desierto" src="img/desierto.webp" alt="">
+        <img class="cielo" src="img/Cielo.jpeg" alt="">
+    </div>
+</body>
+</html>
